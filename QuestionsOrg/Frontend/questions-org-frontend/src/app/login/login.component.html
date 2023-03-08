@@ -1,0 +1,13 @@
+
+<div class="form-wrap" (submit)="submit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="username..." [formControl]="username">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="password..." [formControl]="password">
+    </mat-form-field>
+   
+    <button mat-raised-button (click)="submit()">Sign In</button>
+</div>

@@ -1,0 +1,45 @@
+<div style="padding-bottom:1rem;">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <span routerLink="/">{{title}}</span>
+            <span class="example-spacer"></span>
+
+            <button mat-button style="margin-left:5px" routerLink="login" *ngIf="!isAuthenticated()">Sign In</button>
+            <button mat-button style="margin-left:5px" routerLink="register" *ngIf="!isAuthenticated()">Register</button>
+
+            <button mat-button style="margin-left:5px" *ngIf="isAuthenticated()" routerLink="ask">Ask</button>
+            <button mat-button style="margin-left:5px" *ngIf="isAuthenticated()" routerLink="profile">Profile</button>
+            <button mat-button style="margin-left:5px" *ngIf="isAuthenticated()" (click)="logout()">Log out</button>
+
+
+
+            <button mat-icon-button (click)="back()">
+                <mat-icon [cdkContextMenuTriggerFor]="menu">arrow_back</mat-icon>
+            </button>
+
+
+            <ng-template #menu>
+                <div class="example-menu" cdkMenu>
+                    <button class="example-menu-item" cdkMenuItem> Item </button>
+                </div>
+            </ng-template>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div style="margin-top:.5rem;">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<!--<mat-grid-list cols="2" gutterSize='5px'>
+    <mat-grid-tile class="tile-outline">
+        <div class="tile-container">
+            <app-question-list></app-question-list>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="tile-outline">
+        <div class="tile-container">
+            <app-question-list></app-question-list>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>-->

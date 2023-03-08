@@ -1,0 +1,27 @@
+
+<div class="form-wrap" (submit)="submit()">
+    <table style="width:100%;">
+        <p>
+            <mat-form-field appearance="fill" style="width:100%;">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="title" [formControl]="title">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="fill" style="width:100%;">
+                <mat-label>Description</mat-label>
+                <textarea rows="10" matInput type="password" placeholder="description" [formControl]="description"> </textarea>
+            </mat-form-field>
+        </p>
+    </table>
+    <table style="width:100%">
+        <tr>
+            <td>
+                <button mat-raised-button routerLink="/questions" (click)="submit()" style="width:100%;">Ask</button>
+            </td>
+            <td>
+                <button mat-raised-button (click)="back()" style="width:100%;">Back</button>
+            </td>
+        </tr>
+    </table>
+</div>

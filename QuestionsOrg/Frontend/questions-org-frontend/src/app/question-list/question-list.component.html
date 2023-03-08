@@ -1,0 +1,34 @@
+<!--
+<ul *ngFor="let q of list">
+    <li>{{q}}</li>
+</ul>-->
+<!--<mat-list>-->
+<!--<mat-card *ngFor="let q of list" class="question-card" style="background:#efefef;margin-left:1em;margin-right:1em;">
+    <mat-card-header>
+        <mat-card-title>
+            {{q.title}}
+            <span style="flex: 1 1 auto;"></span>
+            
+        </mat-card-title>
+        <mat-card-subtitle>
+            author: {{q.username}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        {{q.description}}
+        <mat-card-actions *ngIf="q.authorId == user!.id">
+            <button mat-raised-button (click)="deleteQuestion(q.id!)">
+                delete
+            </button>
+        </mat-card-actions>
+    </mat-card-content>
+    <mat-card-footer>
+        <mat-card-subtitle>
+            {{q.creationTime}}
+        </mat-card-subtitle>
+    </mat-card-footer>
+</mat-card>-->
+<!--</mat-list>-->
+<div  style="margin-bottom: .5rem; margin-top: .5rem;">
+    <app-question *ngFor="let q of list" [question]="q" [user]="user" (onDelete)="deleteQuestion(q.id!)" [expanded]="expanded"></app-question>
+</div>

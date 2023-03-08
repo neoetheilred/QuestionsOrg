@@ -1,0 +1,37 @@
+<!--<div class="form-wrap">
+
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>
+                Username
+            </mat-label>
+            <input matInput placeholder="Your name goes here..." />
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <mat-label>
+                Password
+            </mat-label>
+            <input matInput type="password" />
+        </mat-form-field>
+    </p>
+</div>-->
+
+
+<div class="form-wrap" (submit)="submit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="username..." [formControl]="username">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="password..." [formControl]="password">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Confirm password</mat-label>
+        <input matInput type="password" placeholder="password..." [formControl]="confirmPassword">
+    </mat-form-field>
+    <button mat-raised-button routerLink="/" (click)="submit()">Register</button>
+</div>
+<p>{{username.value}}</p>

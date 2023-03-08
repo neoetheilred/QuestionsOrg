@@ -1,0 +1,44 @@
+
+<div style="margin-bottom: .5rem;">
+    <mat-card *ngIf="expanded" class="question-card">
+        <mat-card-header>
+            <mat-card-title>
+                <p (click)="expanded=!expanded">{{question!.title}}</p>
+            </mat-card-title>
+            <mat-card-subtitle>
+                author: {{question!.username}}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p style="white-space: pre-wrap;">
+                {{question!.description}}
+            </p>
+            <ul *ngIf="showAnswers">
+                Answers:
+                <!--<li *ngFor="let ans of answers">{{ans.text}}</li>-->
+                <app-answer-list [question]="question!"></app-answer-list>
+            </ul>
+            <mat-card-actions>
+                <button mat-raised-button (click)="onDelete.emit(question!.id)" *ngIf="question!.authorId == user!.id">
+                    delete
+                </button>
+                <button mat-raised-button routerLink="/answer/{{question!.id!}}"> Answer </button>
+                <button mat-raised-button (click)="showAnswers=true" *ngIf="!showAnswers">Show answers</button>
+                <button mat-raised-button (click)="showAnswers=false" *ngIf="showAnswers">Hide answers</button>
+            </mat-card-actions>
+        </mat-card-content>
+        <mat-card-footer>
+            <mat-card-subtitle>
+                {{question!.creationTime}}
+            </mat-card-subtitle>
+        </mat-card-footer>
+    </mat-card>
+
+    <mat-card *ngIf="!expanded" class="question-card">
+        <mat-card-header>
+            <mat-card-title> <p (click)="expanded=!expanded">{{question!.title}}</p></mat-card-title>
+            <mat-card-subtitle>author: {{question!.username}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content></mat-card-content>
+    </mat-card>
+</div>

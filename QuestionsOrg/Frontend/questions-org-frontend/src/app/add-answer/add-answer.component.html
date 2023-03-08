@@ -1,0 +1,20 @@
+<div class="form-wrap">
+
+    <h3>Answer to {{question!.title}}</h3>
+    <table style="width:100%;">
+        <mat-form-field appearance="fill" style="width:100%;">
+            <mat-label>Description</mat-label>
+            <textarea rows="10" matInput type="password" placeholder="description" [formControl]="text"> </textarea>
+        </mat-form-field>
+    </table>
+    <table style="width:100%">
+        <tr>
+            <td>
+                <button mat-raised-button (click)="submit()" style="width:100%;">Answer</button>
+            </td>
+            <td>
+                <button mat-raised-button (click)="back()" style="width:100%;">Back</button>
+            </td>
+        </tr>
+    </table>
+</div>

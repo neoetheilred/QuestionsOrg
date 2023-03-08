@@ -1,0 +1,27 @@
+
+<div style="height: 80vh;">
+    <mat-card style="margin:1rem; height:100%;">
+        <mat-card-header>
+            <mat-card-title>
+                Name: {{user!.name}}
+            </mat-card-title>
+            <mat-card-subtitle>
+                questions: {{userQuestions.length}}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+
+           <!-- <mat-list>
+                <div matSubheader>Questions</div>
+                <mat-list-item *ngFor="let q of userQuestions">
+                    <app-question [question]="q" [user]="user" [expanded]="false"></app-question>
+                </mat-list-item>
+            </mat-list>-->
+            <cdk-virtual-scroll-viewport itemSize="50px" style="height:65vh; width:auto; display:block; margin-top: 1rem;">
+                <app-question-list [showUserQuestionsOnly]="true"></app-question-list>
+            </cdk-virtual-scroll-viewport>
+            
+
+        </mat-card-content>
+    </mat-card>
+</div>

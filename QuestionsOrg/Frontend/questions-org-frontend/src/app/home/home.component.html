@@ -1,0 +1,35 @@
+
+
+
+<mat-grid-list cols="3">
+    <mat-grid-tile>
+        <div style="width:100%; height:90%">
+            <mat-card style="height:100%;margin:1rem; background:#eeeeee;">
+                <mat-card-header routerLink="/questions">
+                    <mat-card-title>Questions (no answers)</mat-card-title>
+                    <mat-card-subtitle>See list of all questions</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                        <cdk-virtual-scroll-viewport itemSize="50px" style="height:50vh; width:auto; background:#ddffff;">
+                            <app-question-list [expanded]="false"></app-question-list>
+                        </cdk-virtual-scroll-viewport>
+                    <!--<app-question-list></app-question-list>-->
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+        <div style="width:100%; height:90%">
+            <mat-card style="height:100%;margin:1rem; background:#eeeeee;">
+                <mat-card-header>
+                    <mat-card-title>Users</mat-card-title>
+                    <mat-card-subtitle>Our users</mat-card-subtitle>
+                </mat-card-header>
+                <ul *ngFor="let user of users">
+                    <li>{{user.name}}</li>
+                </ul>
+            </mat-card>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
