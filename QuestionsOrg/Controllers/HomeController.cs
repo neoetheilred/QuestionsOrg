@@ -39,6 +39,12 @@ namespace QuestionsOrg.Controllers
             return db.Questions.Where(x => x.AuthorId == id);
         }
 
+        [HttpGet("{id}")]
+        public Question GetById(int id)
+        {
+            return db.Questions.First(x => x.Id == id);
+        }
+
         [HttpPost]
         public bool Post([FromBody] Question question)
         {

@@ -29,6 +29,11 @@ namespace QuestionsOrg
                 options.UseSqlServer(connectionString);
             });
 
+            builder.Services.AddDbContext<AnswerContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
+            });
+
             builder.Services.AddAntiforgery();
 
             builder.Services.AddCors(options =>
